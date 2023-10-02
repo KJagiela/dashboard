@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import {fetchTopPriorityTask} from "~/server/api/services/notion";
 
 export const exampleRouter = createTRPCRouter({
   hello: publicProcedure
