@@ -7,11 +7,11 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    DATABASE_URL: z
+    MONGODB_URL: z
       .string()
       .url()
       .refine(
-        (str) => !str.includes("YOUR_MYSQL_URL_HERE"),
+        (str) => !str.includes("YOUR_URL_HERE"),
         "You forgot to change the default URL"
       ),
     NODE_ENV: z
@@ -35,7 +35,7 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
-    DATABASE_URL: process.env.DATABASE_URL,
+    MONGODB_URL: process.env.MONGODB_URL,
     NODE_ENV: process.env.NODE_ENV,
     NOTION_API_KEY: process.env.NOTION_API_KEY,
     NOTION_DATABASE_ID: process.env.NOTION_DATABASE_ID,
